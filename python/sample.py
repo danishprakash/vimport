@@ -16,6 +16,22 @@ def print_country():
 
 def insert_country():
     row, column = vim.current.window.cursor
+    print(row, column)
     current_line = vim.current.buffer[row-1]
     new_line = current_line[:column] + _get_country() + current_line[column:]
     vim.current.buffer[row-1] = new_line
+
+def vimport():
+    # Get value for parameter path
+    path = vim.eval('a:path')
+
+    # Save current cursor position
+    old_row, old_column = vim.current.window.cursor
+    row, column = 0, 0
+    vim.windows.cursor = row, column
+
+    # Append new line before the current line
+    vim.command('normal O')
+    new_line = 'import {}'.format(path)
+    vim.current.buffer[row] = new_line
+    vim.windows.cursor = old_row, old_column

@@ -19,6 +19,11 @@ endfunction
 command! -nargs=0 PrintCountry call PrintCountry()
 
 function! InsertCountry()
-    python sample.insert_country()
+	python sample.insert_country()
 endfunction
 command! -nargs=0 InsertCountry call InsertCountry()
+
+function! Vimport(path)
+	python sample.vimport()
+endfunction
+command! -nargs=1 Vimport call Vimport(<q-args>)
