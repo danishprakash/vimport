@@ -1,29 +1,10 @@
-let s:plugin_root_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-
-python << EOF
-
-import sys
-from os.path import normpath, join
-import vim
-
-plugin_root_dir = vim.eval('s:plugin_root_dir')
-python_root_dir = normpath(join(plugin_root_dir, '..', 'python'))
-sys.path.insert(0, python_root_dir)
-import sample
-
-EOF
-
-function! PrintCountry()
-	python sample.print_country()
-endfunction
-command! -nargs=0 PrintCountry call PrintCountry()
-
-function! InsertCountry()
-	python sample.insert_country()
-endfunction
-command! -nargs=0 InsertCountry call InsertCountry()
-
 function! Vimport(path)
-	python sample.vimport()
+	let saved_position = getpos('.')
+	let import_path = eval('a:path')
+	normal! ggO<C-[>
+	" call append(import_path)
+	call setpos('.', saved_position)
 endfunction
+
 command! -nargs=1 Vimport call Vimport(<q-args>)
+
