@@ -1,3 +1,4 @@
+" Import at top level 
 function! Vimport(path)
 	echo a:path
 	let saved_position = getpos(".")
@@ -6,12 +7,13 @@ function! Vimport(path)
 	" move down one line and back in insert mode to continute editing
 	" execute "normal! ji"
 endfunction
-
 command! -nargs=1 Vimport call Vimport(<f-args>)
 
+
+" Drop an import using pattern matching
 function! Vimdrop(path)
 	let saved_position = getpos(".")
+	execute "normal! gg/import " . a:path . "\<CR>\<S-V>\<S-D>k"
 	call setpos('.', saved_position)
 endfunction
-
 command -nargs=1 Vimdrop call Vimdrop(<q-args>)
