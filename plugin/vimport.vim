@@ -2,10 +2,11 @@
 function! Vimport(path)
 	echo a:path
 	let saved_position = getpos(".")
+	let saved_position[1] = saved_position[1] + 1
+	let saved_position[2] = saved_position[2] + 1
 	execute "normal! ggOimport " . a:path . "\<esc>"
 	call setpos('.', saved_position)
-	" move down one line and back in insert mode to continute editing
-	" execute "normal! ji"
+	execute "startinsert"
 endfunction
 command! -nargs=1 Vimport call Vimport(<f-args>)
 
