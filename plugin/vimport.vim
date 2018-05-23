@@ -8,6 +8,7 @@ function! Vimport(path)
 	call setpos('.', saved_position)
 	execute "startinsert"
 endfunction
+
 command! -nargs=1 Vimport call Vimport(<f-args>)
 
 
@@ -17,4 +18,5 @@ function! Vimdrop(path)
 	execute "normal! gg/import " . a:path . "\<CR>\<S-V>\<S-D>k"
 	call setpos('.', saved_position)
 endfunction
-command -nargs=1 Vimdrop call Vimdrop(<q-args>)
+
+command! -nargs=1 Vimdrop call Vimdrop(<f-args>)
