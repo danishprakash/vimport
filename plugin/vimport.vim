@@ -1,3 +1,7 @@
+" Vim global plugin for importing and dropping modules in python
+" Last Change: 	2018 May 29
+" Maintainer: 	Danish Prakash
+
 " Import at top level 
 function! Vimport(path)
 	echo a:path
