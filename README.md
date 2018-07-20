@@ -1,14 +1,14 @@
 <h1 align="center">Vimport</h1>
-<p align="center">Vim pluging to quickly import and drop modules.</p>
+<p align="center">Vim pluging to quickly import and drop modules in Python.</p>
 
 <p align="center">
 <a href="https://imgur.com/aDI8GhY"><img src="https://imgur.com/aDI8GhY.gif" alt="Asciicast" width="480"/></a>
 </p>
 
 ## Installation
-Using vim-plug
+Using [vim-zen](https://github.com/prakashdanish/vim-zen)
 ```bash
-Plug 'prakashdanish/vimport'
+Plugin 'prakashdanish/vimport'
 ```
 
 ## Usage
